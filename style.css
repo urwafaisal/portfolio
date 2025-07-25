@@ -18,6 +18,68 @@ body {
   margin: 0;
   min-height: 100vh;
   line-height: 1.7;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Glowing/Lighting Effect and Abstract Shapes */
+.bg-effects {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  z-index: 0;
+}
+.bg-glow1 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #EF8354 0%, transparent 70%);
+  top: -120px; left: -120px;
+}
+.bg-glow2 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, #4F5D75 0%, transparent 70%);
+  bottom: 0; right: -100px;
+}
+.bg-glow3 {
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, #BFC0C0 0%, transparent 80%);
+  top: 60%; left: 60%;
+}
+.bg-shape {
+  position: absolute;
+  opacity: 0.13;
+  z-index: 0;
+  filter: blur(2px);
+}
+.bg-shape1 {
+  width: 120px; height: 120px;
+  background: linear-gradient(135deg, #EF8354 60%, #4F5D75 100%);
+  border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+  top: 20%; left: 5%;
+}
+.bg-shape2 {
+  width: 90px; height: 90px;
+  background: linear-gradient(135deg, #BFC0C0 60%, #2D3142 100%);
+  border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+  bottom: 10%; right: 10%;
+}
+.bg-shape3 {
+  width: 70px; height: 70px;
+  background: linear-gradient(135deg, #4F5D75 60%, #EF8354 100%);
+  border-radius: 60% 40% 60% 40% / 50% 50% 40% 60%;
+  top: 70%; left: 80%;
+}
+
+/* Ensure main content is above background effects */
+body > *:not(.bg-effects) {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -100,7 +162,7 @@ body {
 
 .btn {
   display: inline-block;
-  background: linear-gradient(90deg, var(--navy), var(--accent) );
+  background: linear-gradient(90deg, var(--white), var(--white) );
   color: var(--white);
   padding: 0.8rem 2.2rem;
   border: none;
